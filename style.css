@@ -11,17 +11,20 @@ body {
 }
 
 @font-face {
-    font-family: light;
+    font-family: aeonik;
+    font-weight: 200;
     src: url(./Aeonik\ Pro\ Light.ttf);
 }
 
 @font-face {
-    font-family: regular;
+    font-family: aeonik;
+    font-weight: 500;
     src: url(./Aeonik\ Pro\ Medium.ttf);
 }
 
 @font-face {
-    font-family: bold;
+    font-family: aeonik;
+    font-weight: 700;
     src: url(./Aeonik\ Pro\ Bold.ttf);
 }
 
@@ -29,4 +32,8 @@ body {
     height: 100%;
     width: 100%;
     background-color: #111;
+}
+
+h1 {
+    font-family: bold;
 }

@@ -2,6 +2,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: aeonik;
+    color: var(--pri);
 }
 
 html,
@@ -58,5 +60,14 @@ section.allElems {
     width: 100%;
     padding: 40px;
     padding-top: 80px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 40px;
+}
 
+.elem {
+    background-color: #ec610b;
+    padding: 30px 40px;
+    border-radius: 20px;
 }

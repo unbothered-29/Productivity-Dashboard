@@ -10,6 +10,12 @@ body {
     height: 100%;
 }
 
+:root {
+    --pri: #fff;
+    --sec: #111;
+    --tri: lightseagreen;
+}
+
 @font-face {
     font-family: aeonik;
     font-weight: 200;
@@ -34,6 +40,4 @@ body {
     background-color: #111;
 }
 
-h1 {
-    font-family: bold;
-}
+h1 {}

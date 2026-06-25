@@ -69,5 +69,6 @@ section.allElems {
 .elem {
     background-color: #ec610b;
     padding: 30px 40px;
+    font-size: 50px;
     border-radius: 20px;
 }

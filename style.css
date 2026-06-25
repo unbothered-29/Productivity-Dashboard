@@ -14,6 +14,8 @@ body {
     --pri: #fff;
     --sec: #111;
     --tri: lightseagreen;
+    --tri1: #e5b299;
+    --tri2: #b4846c;
 }
 
 @font-face {
@@ -40,4 +42,7 @@ body {
     background-color: #111;
 }
 
-h1 {}
+h1 {
+    font-weight: 700;
+    color: ;
+}

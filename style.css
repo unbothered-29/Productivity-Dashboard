@@ -12,7 +12,7 @@ body {
 
 :root {
     --pri: #fff;
-    --sec: #111;
+    --sec: #381c0a;
     --tri: lightseagreen;
     --tri1: #e5b299;
     --tri2: #b4846c;
@@ -39,22 +39,24 @@ body {
 #main {
     height: 100%;
     width: 100%;
-    background-color: #111;
+    background-color: #381c0a;
 }
 
 h1 {
     font-weight: 700;
-    color: ;
 }
-nav{
+
+nav {
     position: fixed;
     width: 100%;
     height: 60px;
     background-color: var(--tri2);
 }
-section.allElems{
+
+section.allElems {
     height: 100%;
     width: 100%;
     padding: 40px;
     padding-top: 80px;
+
 }

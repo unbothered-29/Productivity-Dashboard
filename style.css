@@ -10,7 +10,22 @@ body {
     height: 100%;
 }
 
-#main{
+@font-face {
+    font-family: light;
+    src: url(./Aeonik\ Pro\ Light.ttf);
+}
+
+@font-face {
+    font-family: regular;
+    src: url(./Aeonik\ Pro\ Medium.ttf);
+}
+
+@font-face {
+    font-family: bold;
+    src: url(./Aeonik\ Pro\ Bold.ttf);
+}
+
+#main {
     height: 100%;
     width: 100%;
     background-color: #111;

@@ -68,7 +68,18 @@ section.allElems {
 
 .elem {
     background-color: #ec610b;
-    padding: 30px 40px;
-    font-size: 50px;
-    border-radius: 20px;
+    /* padding: 30px 40px; */
+    height: 400px;
+    width: 330px;
+    font-size: 30px;
+    border-radius: 10px;
+    overflow: hidden;
 }
+
+.elem img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.elem 

@@ -204,6 +204,10 @@ section.allElems {
     scale: 0.96;
 }
 
+.todo-container .addtask form button:hover {
+    cursor: pointer;
+}
+
 .todo-pg .todo-container .alltask {
     width: 65%;
     height: 100%;
@@ -239,4 +243,8 @@ section.allElems {
     background-color: green;
     border: none;
     font-weight: 600;
+}
+
+.task button:hover {
+    cursor: pointer;
 }

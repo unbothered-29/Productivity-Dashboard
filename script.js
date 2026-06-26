@@ -4,6 +4,6 @@ allElems.forEach(function (elem) {
     elem.addEventListener('click', function () {
         // console.log(elem.id);
 
-        console.log(document.querySelectorAll('.fullElem'));
+        console.log(document.querySelectorAll('.fullElem')[elem.id]);
     })
 })

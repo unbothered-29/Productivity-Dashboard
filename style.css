@@ -111,7 +111,7 @@ section.allElems {
 .back {
     position: absolute;
     right: 5%;
-    background-color:var(--tri);
+    background-color: var(--tri);
     border-radius: 10px;
     padding: 10px 15px;
     font-size: 25px;
@@ -121,7 +121,7 @@ section.allElems {
 }
 
 .back:hover {
-    background-color:#d89402;
+    background-color: #d89402;
 }
 
 .back:active {
@@ -197,4 +197,46 @@ section.allElems {
     background-color: var(--tri);
     outline: none;
     margin-bottom: 20px;
+    transition: all ease 0.3s;
+}
+
+.todo-container .addtask form button:active {
+    scale: 0.96;
+}
+
+.todo-pg .todo-container .alltask {
+    width: 65%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: var(--tri2);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--pri);
+    padding: 20px 30px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.task h5 {
+    color: var(--sec);
+    font-size: 30px;
+}
+
+.task button {
+    padding: 15px 30px;
+    color: var(--pri);
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: green;
+    border: none;
+    font-weight: 600;
 }

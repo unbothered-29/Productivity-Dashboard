@@ -71,11 +71,10 @@ section.allElems {
     /* padding: 30px 40px; */
     height: 400px;
     width: 330px;
-    font-size: 30px;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
-    transition: all ease 0.5s;
+    transition: all ease 0.2s;
 }
 
 .elem img {
@@ -85,11 +84,13 @@ section.allElems {
 }
 
 .elem h2 {
-    bottom: 5%;
+    bottom: 4%;
+    font-weight: 500;
+    font-size: 30px;
     right: 5%;
     position: absolute;
 }
 
-.elem:active{
+.elem:active {
     scale: 0.97;
 }

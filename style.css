@@ -74,6 +74,8 @@ section.allElems {
     font-size: 30px;
     border-radius: 10px;
     overflow: hidden;
+    position: relative;
+    transition: all ease 0.5s;
 }
 
 .elem img {
@@ -82,4 +84,12 @@ section.allElems {
     object-fit: cover;
 }
 
-.elem 
+.elem h2 {
+    bottom: 5%;
+    right: 5%;
+    position: absolute;
+}
+
+.elem:active{
+    scale: 0.97;
+}

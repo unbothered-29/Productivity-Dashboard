@@ -103,7 +103,7 @@ section.allElems {
     width: 100%;
     background-color: #381c0a;
     padding: 40px;
-    font-size: 60px;
+    /* font-size: 60px; */
     display: none;
     position: absolute;
 }

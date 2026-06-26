@@ -119,9 +119,42 @@ section.allElems {
     border: none;
     cursor: pointer;
 }
-.back:hover{
+
+.back:hover {
     background-color: rgb(218, 2, 2);
 }
+
 .back:active {
     scale: 0.97;
+}
+
+.todo-pg {
+    display: block;
+}
+
+.todo-pg h2 {
+    font-size: 65px;
+}
+
+.todo-pg .todo-container {
+    height: 80%;
+    width: 100%;
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.todo-pg .todo-container .addtask {
+    width: 33%;
+    height: 100%;
+    background-color: var(--tri2);
+    border-radius: 20px;
+}
+
+.todo-pg .todo-container .alltask {
+    width: 65%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: var(--tri2);
 }

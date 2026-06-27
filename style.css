@@ -166,7 +166,7 @@ section.allElems {
     padding: 30px;
 }
 
-.todo-container .addtask form input {
+.todo-container .addtask form #task {
     padding: 10px 20px;
     width: 100%;
     font-size: 29px;
@@ -238,6 +238,25 @@ section.allElems {
 .task h5 {
     color: var(--sec);
     font-size: 30px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.task h5 span {
+    color: var(--pri);
+    background-color: red;
+    padding: 4px 8px;
+    border-radius: 50px;
+    font-size: 11px;
+}
+
+.task h5 span.true {
+    opacity: 1;
+}
+
+.task h5 span.false {
+    opacity: 0;
 }
 
 .task button {
@@ -252,4 +271,22 @@ section.allElems {
 
 .task button:hover {
     cursor: pointer;
+}
+
+.mark-imp {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 10px;
+    margin-bottom: 20px;
+    width: 100%;
+    gap: 20px;
+}
+
+.mark-imp input {
+    scale: 1.5;
+}
+
+.mark-imp label {
+    font-size: 20px;
 }

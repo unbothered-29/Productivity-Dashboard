@@ -18,13 +18,8 @@ function openFeatures() {
 
 openFeatures()
 
-let form = document.querySelector('.addtask form')
-let taskInput = document.querySelector('.addtask form input')
-let taskDetailsInput = document.querySelector('.addtask form textarea')
-let taskCheckbox = document.querySelector('.addtask form #check')
 
 var currentTask = []
-
 if (localStorage.getItem('currentTask')) {
     currentTask = JSON.parse(localStorage.getItem('currentTask'))
 }
@@ -38,10 +33,10 @@ function renderTask() {
 
     var sum = ''
 
-    currentTask.forEach(function (elem) {
+    currentTask.forEach(function (elem, idx) {
         sum = sum + `   <div class="task">
                         <h5>${elem.task} <span class=${elem.imp}>imp</span></h5>
-                        <button>Mark as Completed</button>
+                        <button id=${idx}>Mark as Completed</button>
                         <!-- <button>Delete</button> -->
                     </div>`
     })
@@ -51,9 +46,13 @@ function renderTask() {
 
 renderTask()
 
+let form = document.querySelector('.addtask form')
+let taskInput = document.querySelector('.addtask form input')
+let taskDetailsInput = document.querySelector('.addtask form textarea')
+let taskCheckbox = document.querySelector('.addtask form #check')
+
 form.addEventListener('submit', function (e) {
     e.preventDefault()
-
     // console.log(taskInput.value);
     // console.log(taskDetailsInput.value);
     // console.log(taskCheckbox.checked);
@@ -65,13 +64,20 @@ form.addEventListener('submit', function (e) {
             imp: taskCheckbox.checked
         }
     )
-
+    renderTask()
     localStorage.setItem('currentTask', JSON.stringify(currentTask))
+
     taskInput.value = ''
     taskDetailsInput.value = ''
     taskCheckbox.checked = false
+})
 
-    renderTask()
+var markCompletedBtn = document.querySelectorAll('.task button')
+
+markCompletedBtn.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+        currentTask.splice(btn.id, 1)
+    })
 })
 
 // localStorage.clear()

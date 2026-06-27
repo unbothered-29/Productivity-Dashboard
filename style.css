@@ -13,7 +13,7 @@ body {
 }
 
 :root {
-    --pri: #fff;
+    --pri: #f7eedb;
     --sec: #381c0a;
     --tri: #f7b321;
     --tri1: #e5b299;
@@ -169,12 +169,15 @@ section.allElems {
 .todo-container .addtask form input {
     padding: 10px 20px;
     width: 100%;
-    font-size: 28px;
+    font-size: 29px;
     border-radius: 5px;
     border: none;
-    background-color: var(--sec);
+    background-color: var(--pri);
+    color: var(--sec);
+    border: none;
     outline: none;
     margin-bottom: 20px;
+    font-weight: 500;
 }
 
 .todo-container .addtask form textarea {
@@ -183,7 +186,8 @@ section.allElems {
     font-size: 28px;
     border-radius: 5px;
     border: none;
-    background-color: var(--sec);
+    background-color: var(--pri);
+    color: var(--sec);
     outline: none;
     margin-bottom: 20px;
 }
@@ -191,7 +195,7 @@ section.allElems {
 .todo-container .addtask form button {
     padding: 10px 20px;
     width: 100%;
-    font-size: 28px;
+    font-size: 26px;
     border-radius: 5px;
     border: none;
     background-color: var(--tri);
@@ -217,6 +221,7 @@ section.allElems {
     flex-direction: column;
     align-items: flex-start;
     padding: 30px;
+    overflow: auto;
 }
 
 .task {

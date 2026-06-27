@@ -17,3 +17,15 @@ function openFeatures() {
 }
 
 openFeatures()
+
+let form = document.querySelector('.addtask form')
+let taskInput = document.querySelector('.addtask form input')
+let taskDetailsInput = document.querySelector('.addtask form textarea')
+
+form.addEventListener('submit', function (e) {
+    e.preventDefault()
+
+    console.log(taskInput.value);
+    console.log(taskDetailsInput.value);
+
+})

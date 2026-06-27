@@ -26,7 +26,7 @@ let taskCheckbox = document.querySelector('.addtask form #check')
 var currentTask = []
 
 if (localStorage.getItem('currentTask')) {
-    console.log('Task list is full.');
+    currentTask = JSON.parse(localStorage.getItem('currentTask'))
 }
 else {
     console.log('Task list is empty.');

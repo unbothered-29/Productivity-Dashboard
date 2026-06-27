@@ -76,7 +76,7 @@ var markCompletedBtn = document.querySelectorAll('.task button')
 
 markCompletedBtn.forEach(function (btn) {
     btn.addEventListener('click', function () {
-        currentTask.splice(btn.id, 1)
+   
     })
 })
 

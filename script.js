@@ -78,6 +78,6 @@ markCompletedBtn.forEach(function (btn) {
     btn.addEventListener('click', function () {
         currentTask.splice(btn.id, 1)
     })
-})
+});
 
 // localStorage.clear()

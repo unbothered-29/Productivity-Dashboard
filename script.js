@@ -23,23 +23,15 @@ let taskInput = document.querySelector('.addtask form input')
 let taskDetailsInput = document.querySelector('.addtask form textarea')
 let taskCheckbox = document.querySelector('.addtask form #check')
 
-let currentTask = [
-    {
-        task: 'Do React',
-        details: 'Two-way binding',
-        imp: true
-    },
-    {
-        task: 'Do Java',
-        details: 'Loops & Patterns',
-        imp: true
-    },
-    {
-        task: ' Laxmi Bakes Meet',
-        details: 'Basic Set-up & workflow',
-        imp: false
-    },
-]
+var currentTask = []
+
+if (localStorage.getItem('currentTask')) {
+    console.log('Task list is full.');
+}
+else {
+    console.log('Task list is empty.');
+}
+
 
 function renderTask() {
     var allTask = document.querySelector('.alltask');
@@ -66,7 +58,20 @@ form.addEventListener('submit', function (e) {
     // console.log(taskDetailsInput.value);
     // console.log(taskCheckbox.checked);
 
-    currentTask.push({ task: taskInput.value, details: taskDetailsInput.value, imp: taskCheckbox.checked })
+    currentTask.push(
+        {
+            task: taskInput.value,
+            details: taskDetailsInput.value,
+            imp: taskCheckbox.checked
+        }
+    )
 
-    console.log(currentTask);
+    localStorage.setItem('currentTask', JSON.stringify(currentTask))
+    taskInput.value = ''
+    taskDetailsInput.value = ''
+    taskCheckbox.checked = false
+
+    renderTask()
 })
+
+// localStorage.clear()

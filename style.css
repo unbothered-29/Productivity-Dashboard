@@ -299,3 +299,34 @@ section.allElems {
 .daily-pg h2 {
     font-size: 70px;
 }
+
+.daily-pg .day-planner {
+    background-color: var(--tri2);
+    height: 85%;
+    margin-top: 40px;
+    width: 100%;
+    border-radius: 10px;
+    padding: 20px;
+
+}
+
+.daily-pg .day-time {
+    background-color: red;
+    display: flex;
+    align-items: center;
+}
+
+.daily-pg .day-time p {
+    position: absolute;
+    top: 5%;
+    left: 1%;
+}
+
+.daily-pg .day-time p {
+    padding: 20px 40px;
+    width: 100%;
+    background-color: var(--sec);
+    border: none;
+    border-radius: 5px;
+    font-size: 26px;
+}

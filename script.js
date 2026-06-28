@@ -43,6 +43,14 @@ function renderTask() {
 
     allTask.innerHTML = sum
     localStorage.setItem('currentTask', JSON.stringify(currentTask))
+
+    document.querySelectorAll('.task button').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            currentTask.splice(btn.id, 1)
+            renderTask()
+            // location.reload()
+        })
+    })
 }
 
 renderTask()
@@ -67,23 +75,11 @@ function todoList() {
             }
         )
         renderTask()
-        location.reload()
 
-        // taskInput.value = ''
-        // taskDetailsInput.value = ''
-        // taskCheckbox.checked = false
+        taskInput.value = ''
+        taskDetailsInput.value = ''
+        taskCheckbox.checked = false
     })
-
-    var markCompletedBtn = document.querySelectorAll('.task button')
-
-    markCompletedBtn.forEach(function (btn) {
-        btn.addEventListener('click', function () {
-            currentTask.splice(btn.id, 1)
-            renderTask()
-            location.reload()
-        })
-    })
-
 }
 
 todoList()

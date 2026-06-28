@@ -42,6 +42,7 @@ function renderTask() {
     })
 
     allTask.innerHTML = sum
+    localStorage.setItem('currentTask', JSON.stringify(currentTask))
 }
 
 renderTask()
@@ -65,18 +66,20 @@ form.addEventListener('submit', function (e) {
         }
     )
     renderTask()
-    localStorage.setItem('currentTask', JSON.stringify(currentTask))
+    location.reload()
 
-    taskInput.value = ''
-    taskDetailsInput.value = ''
-    taskCheckbox.checked = false
+    // taskInput.value = ''
+    // taskDetailsInput.value = ''
+    // taskCheckbox.checked = false
 })
 
 var markCompletedBtn = document.querySelectorAll('.task button')
 
 markCompletedBtn.forEach(function (btn) {
     btn.addEventListener('click', function () {
-   //2.22.18
+        currentTask.splice(btn.id, 1)
+        renderTask()
+        location.reload()
     })
 })
 

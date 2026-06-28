@@ -269,6 +269,10 @@ section.allElems {
     font-weight: 600;
 }
 
+.task button:active {
+    scale: 0.96;
+}
+
 .task button:hover {
     cursor: pointer;
 }

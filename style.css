@@ -291,3 +291,11 @@ section.allElems {
 .mark-imp label {
     font-size: 20px;
 }
+
+.daily-pg {
+    display: block;
+}
+
+.daily-pg h2 {
+    font-size: 70px;
+}

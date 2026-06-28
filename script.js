@@ -47,40 +47,44 @@ function renderTask() {
 
 renderTask()
 
-let form = document.querySelector('.addtask form')
-let taskInput = document.querySelector('.addtask form input')
-let taskDetailsInput = document.querySelector('.addtask form textarea')
-let taskCheckbox = document.querySelector('.addtask form #check')
+function todoList() {
+    let form = document.querySelector('.addtask form')
+    let taskInput = document.querySelector('.addtask form input')
+    let taskDetailsInput = document.querySelector('.addtask form textarea')
+    let taskCheckbox = document.querySelector('.addtask form #check')
 
-form.addEventListener('submit', function (e) {
-    e.preventDefault()
-    // console.log(taskInput.value);
-    // console.log(taskDetailsInput.value);
-    // console.log(taskCheckbox.checked);
+    form.addEventListener('submit', function (e) {
+        e.preventDefault()
+        // console.log(taskInput.value);
+        // console.log(taskDetailsInput.value);
+        // console.log(taskCheckbox.checked);
 
-    currentTask.push(
-        {
-            task: taskInput.value,
-            details: taskDetailsInput.value,
-            imp: taskCheckbox.checked
-        }
-    )
-    renderTask()
-    location.reload()
-
-    // taskInput.value = ''
-    // taskDetailsInput.value = ''
-    // taskCheckbox.checked = false
-})
-
-var markCompletedBtn = document.querySelectorAll('.task button')
-
-markCompletedBtn.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-        currentTask.splice(btn.id, 1)
+        currentTask.push(
+            {
+                task: taskInput.value,
+                details: taskDetailsInput.value,
+                imp: taskCheckbox.checked
+            }
+        )
         renderTask()
         location.reload()
-    })
-})
 
+        // taskInput.value = ''
+        // taskDetailsInput.value = ''
+        // taskCheckbox.checked = false
+    })
+
+    var markCompletedBtn = document.querySelectorAll('.task button')
+
+    markCompletedBtn.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            currentTask.splice(btn.id, 1)
+            renderTask()
+            location.reload()
+        })
+    })
+
+}
+
+todoList()
 // localStorage.clear()

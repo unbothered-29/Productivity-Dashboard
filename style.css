@@ -337,3 +337,27 @@ section.allElems {
     font-size: 35px;
     outline: none;
 }
+
+.moti-pg {
+    display: block;
+}
+
+.moti-pg .moti-container {
+    height: 600px;
+    width: 500px;
+    border-radius: 50px;
+    background-color: var(--tri2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.moti-pg .moti-container::after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: red;
+    border-radius: 50px;
+}

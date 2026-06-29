@@ -360,7 +360,7 @@ section.allElems {
     position: absolute;
     background-color: var(--pri);
     border-radius: 50px;
-    scale: 5;
+    scale: 1.5;
     z-index: 8;
 }
 

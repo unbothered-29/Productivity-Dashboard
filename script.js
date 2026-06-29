@@ -84,23 +84,23 @@ function todoList() {
 
 todoList()
 
+
+var dayPlanData = JSON.parse(localStorage.getItem('dayplanData')) || {}
+var dayPlanner = document.querySelector('.day-planner')
+
 var hours = Array.from({ length: 18 }, (elem, idx) => `${6 + idx}:00 - ${7 + idx}:00`)
+var dayPlannerInput = document.querySelectorAll('.day-planner input')
 
 var wholeDaySum = ''
 hours.forEach(function (elem, idx) {
+
+    var savedData = dayPlanData[idx] || ''
     wholeDaySum = wholeDaySum + `<div class="day-time">
                     <p>${elem}</p>
-                    <input id=${idx} type="text" placeholder="...">
+                    <input id=${idx} type="text" placeholder="..." value=${savedData}>
                 </div>`
 })
-
-var dayPlanData = {}
-
-
-var dayPlanner = document.querySelector('.day-planner')
 dayPlanner.innerHTML = wholeDaySum
-
-var dayPlannerInput = document.querySelectorAll('.day-planner input')
 
 dayPlannerInput.forEach(function (elem) {
     elem.addEventListener('input', function () {

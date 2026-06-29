@@ -311,6 +311,7 @@ section.allElems {
     flex-wrap: wrap;
     align-items: flex-start;
     justify-content: space-between;
+    overflow: auto;
 }
 
 .daily-pg .day-planner .day-time {

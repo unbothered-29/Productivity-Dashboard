@@ -29,9 +29,9 @@ else {
 
 
 function renderTask() {
-    var allTask = document.querySelector('.alltask');
+    let allTask = document.querySelector('.alltask');
 
-    var sum = ''
+    let sum = ''
 
     currentTask.forEach(function (elem, idx) {
         sum = sum + `   <div class="task">
@@ -84,6 +84,15 @@ function todoList() {
 
 todoList()
 
-var hours = Array.from({ length: 18 }, (elem, idx) => {
-    return `${6 + idx}:00 - ${7 + idx}:00`
+var hours = Array.from({ length: 18 }, (elem, idx) => `${6 + idx}:00 - ${7 + idx}:00`)
+
+var wholeDaySum = ''
+hours.forEach(function (elem) {
+    wholeDaySum = wholeDaySum + `<div class="day-time">
+                    <p>6:00 - 7:00 AM</p>
+                    <input type="text" placeholder="...">
+                </div>`
 })
+
+var dayPlanner = document.querySelector('.day-planner')
+dayPlanner.innerHTML = wholeDaySum

@@ -83,4 +83,7 @@ function todoList() {
 }
 
 todoList()
-// localStorage.clear()
+
+var hours = Array.from({ length: 18 }, (elem, idx) => {
+    return `${6 + idx}:00 - ${7 + idx}:00`
+})

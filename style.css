@@ -290,9 +290,6 @@ section.allElems {
 
 .mark-imp label {
     font-size: 20px;
-}
-
-.daily-pg {
     display: block;
 }
 
@@ -325,8 +322,9 @@ section.allElems {
 .daily-pg .day-planner .day-time p {
     position: absolute;
     top: 12%;
-    left: 1%;
-    font-size: 18px;
+    left: 2%;
+    font-size: 16px;
+    color: var(--tri);
 }
 
 .daily-pg .day-time input {
@@ -336,6 +334,6 @@ section.allElems {
     border: none;
     border-radius: 5px;
     padding-top: 34px;
-    font-size: 32px;
+    font-size: 35px;
     outline: none;
 }

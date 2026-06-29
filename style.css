@@ -306,27 +306,34 @@ section.allElems {
     margin-top: 40px;
     width: 100%;
     border-radius: 10px;
-    padding: 20px;
-
+    padding: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
-.daily-pg .day-time {
-    background-color: red;
+.daily-pg .day-planner .day-time {
     display: flex;
     align-items: center;
+    position: relative;
+    width: 49%;
+    margin-bottom: 15px;
 }
 
-.daily-pg .day-time p {
+.daily-pg .day-planner .day-time p {
     position: absolute;
-    top: 5%;
+    top: 12%;
     left: 1%;
+    font-size: 18px;
 }
 
-.daily-pg .day-time p {
-    padding: 20px 40px;
+.daily-pg .day-time input {
+    padding: 20px 45px;
     width: 100%;
     background-color: var(--sec);
     border: none;
     border-radius: 5px;
-    font-size: 26px;
+    padding-top: 34px;
+    font-size: 32px;
+    outline: none;
 }

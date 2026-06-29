@@ -358,6 +358,17 @@ section.allElems {
     height: 100%;
     width: 100%;
     position: absolute;
+    background-color: var(--pri);
+    border-radius: 50px;
+    scale: 5;
+    z-index: 8;
+}
+
+.moti-pg .moti-container .moti-wrapper {
+    z-index: 10;
+    position: absolute;
+    height: 100%;
+    width: 100%;
     background-color: red;
     border-radius: 50px;
 }

@@ -89,7 +89,7 @@ var hours = Array.from({ length: 18 }, (elem, idx) => `${6 + idx}:00 - ${7 + idx
 var wholeDaySum = ''
 hours.forEach(function (elem) {
     wholeDaySum = wholeDaySum + `<div class="day-time">
-                    <p>6:00 - 7:00 AM</p>
+                    <p>${elem}</p>
                     <input type="text" placeholder="...">
                 </div>`
 })

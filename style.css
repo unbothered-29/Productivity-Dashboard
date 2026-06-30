@@ -431,5 +431,10 @@ section.allElems {
 }
 
 .pomo-pg h2{
+    font-size: 75px;
+    font-weight: 500;
+}
+
+.pomo-pg .pomo-timer{
     
 }

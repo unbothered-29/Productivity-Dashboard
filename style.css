@@ -343,14 +343,14 @@ section.allElems {
 }
 
 .moti-pg .moti-container {
-    height: 600px;
-    width: 80%;
+    height: 480px;
+    width: 70%;
     position: absolute;
     border-radius: 50px;
     /* background-color: var(--tri2); */
     position: absolute;
     top: 20%;
-    left: 10%;
+    left:15%;
 }
 
 .moti-pg .moti-container::after {
@@ -361,7 +361,7 @@ section.allElems {
     background-color: var(--tri1);
     border-radius: 50px;
     scale: 1.15;
-    filter: blur(120px);
+    filter: blur(90px);
     z-index: 8;
 }
 

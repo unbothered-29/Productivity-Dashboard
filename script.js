@@ -116,3 +116,6 @@ function dailyPlanner() {
 }
 
 dailyPlanner()
+
+let abc = fetch('https://api.quotable.io/random')
+console.log(abc);

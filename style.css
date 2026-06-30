@@ -15,7 +15,7 @@ body {
 :root {
     --pri: #f7eedb;
     --sec: #381c0a;
-    --tri: #f7b321;
+    --tri: #feba17;
     --tri1: #e5b299;
     --tri2: #b4846c;
 }
@@ -375,14 +375,17 @@ section.allElems {
 }
 
 .moti-1 {
-    /* height: 60px; */
-    background-color: var(--tri2);
-    padding: 30px;
-    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .moti-1 h2 {
-    font-size: 30px;
+    background-color: var(--tri2);
+    padding: 30px;
+    border-radius: 20px;
+    width: fit-content;
+    font-size: 40px;
     font-weight: 500;
 }
 
@@ -402,7 +405,6 @@ section.allElems {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-top: 30px;
 }
 
 .moti-3 h2 {

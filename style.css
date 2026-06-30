@@ -342,15 +342,19 @@ section.allElems {
     display: block;
 }
 
+.motivation-fullpg {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .moti-pg .moti-container {
     height: 480px;
     width: 70%;
-    position: absolute;
+    position: relative;
     border-radius: 50px;
-    /* background-color: var(--tri2); */
-    position: absolute;
-    top: 20%;
-    left:15%;
 }
 
 .moti-pg .moti-container::after {

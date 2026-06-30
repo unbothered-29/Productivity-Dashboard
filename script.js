@@ -122,7 +122,7 @@ function motivationalQuote() {
     var motivationAuthor = document.querySelector(".moti-3 h2")
 
     async function fetchQuote() {
-        let response = await fetch('https://api.api-ninjas.com/v2/quoteoftheday')
+        let response = await fetch('https://yugc.site/quotes/quotes.php')
         let data = await response.json()
 
         motivationQuote.innerHTML = data.content

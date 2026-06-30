@@ -344,7 +344,7 @@ section.allElems {
 
 .moti-pg .moti-container {
     height: 500px;
-    width: 500px;
+    width: 600px;
     border-radius: 50px;
     background-color: var(--tri2);
     position: absolute;
@@ -368,9 +368,8 @@ section.allElems {
 .moti-pg .moti-container .moti-wrapper {
     z-index: 10;
     position: absolute;
-    height: 100%;
     width: 100%;
-    padding: 15px;
+    padding: 17px;
     background-color: var(--tri1);
     border-radius: 30px;
 }
@@ -384,4 +383,16 @@ section.allElems {
 
 .moti-1 h2 {
     font-size: 40px;
+    font-weight: 500;
+}
+
+.moti-2 {
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.moti-2 h1 {
+    color: --sec;
+    font-size: 42px;
+    font-weight: 500;
 }

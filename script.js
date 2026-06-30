@@ -117,5 +117,16 @@ function dailyPlanner() {
 
 dailyPlanner()
 
-let abc = fetch('https://api.quotable.io/random')
-console.log(abc);
+var motivationQuote = document.querySelector(".moti-2 h1")
+var motivationAuthor = document.querySelector(".moti-3 h2")
+
+async function fetchQuote() {
+    let response = await fetch('https://api.api-ninjas.com/v2/quoteoftheday')
+    let data = await response.json()
+
+    motivationQuote.innerHTML = data.content
+    motivationAuthor.innerHTML = '-',data.author
+
+}
+
+fetchQuote()

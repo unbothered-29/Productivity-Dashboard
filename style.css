@@ -346,9 +346,9 @@ section.allElems {
     height: 500px;
     width: 600px;
     border-radius: 50px;
-    background-color: var(--tri2);
+    /* background-color: var(--tri2); */
     position: absolute;
-    top: 50%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -392,7 +392,7 @@ section.allElems {
 }
 
 .moti-2 h1 {
-    color: --sec;
+    color: var(--sec);
     font-size: 42px;
     font-weight: 500;
 }

@@ -434,3 +434,7 @@ section.allElems {
     font-size: 75px;
     font-weight: 500;
 }
+
+.pomo-pg .pomo-timer{
+    height: 100%;
+}

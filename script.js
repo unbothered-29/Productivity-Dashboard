@@ -134,3 +134,15 @@ function motivationalQuote() {
 }
 
 motivationalQuote()
+
+let totalSeconds = 25 * 60
+let timer = document.querySelector('.pomo-timer h1')
+
+function updateTime() {
+    let minutes = totalSeconds / 60
+    let seconds = totalSeconds % 60
+
+    console.log(seconds)
+}
+
+updateTime()

@@ -432,7 +432,7 @@ section.allElems {
 }
 
 .pomo-pg h2 {
-    font-size: 75px;
+    font-size: 65px;
     font-weight: 500;
 }
 
@@ -442,4 +442,12 @@ section.allElems {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+.pomo-timer h1 {
+    font-size: 160px;
+}
+
+.pomo-timer button {
+    background-color: var(--tri2);
 }

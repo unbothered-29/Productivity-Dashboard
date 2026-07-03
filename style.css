@@ -428,13 +428,18 @@ section.allElems {
 
 .pomo-pg {
     display: block;
+    position: relative;
 }
 
-.pomo-pg h2{
+.pomo-pg h2 {
     font-size: 75px;
     font-weight: 500;
 }
 
-.pomo-pg .pomo-timer{
-    height: 100%;
+.pomo-pg .pomo-timer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }

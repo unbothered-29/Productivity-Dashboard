@@ -135,8 +135,12 @@ function motivationalQuote() {
 
 motivationalQuote()
 
-let totalSeconds = 25 * 60
 let timer = document.querySelector('.pomo-timer h1')
+let start = document.querySelector('.pomo-timer .start-timer')
+let pause = document.querySelector('.pomo-timer .pause-timer')
+let reset = document.querySelector('.pomo-timer .reset-timer')
+
+let totalSeconds = 25 * 60
 
 function updateTimer() {
     let minutes = Math.floor(totalSeconds / 60)
@@ -148,4 +152,14 @@ function updateTimer() {
 setInterval(() => {
     totalSeconds--
     updateTimer()
-}, 100);
+}, 1000);
+
+
+function startTimer() {
+    setInterval(function () {
+        totalSeconds--
+        updateTimer()
+    }, 1000)
+}
+
+start.addEventListener('click',startTimer)

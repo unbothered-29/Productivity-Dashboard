@@ -138,11 +138,14 @@ motivationalQuote()
 let totalSeconds = 25 * 60
 let timer = document.querySelector('.pomo-timer h1')
 
-function updateTime() {
-    let minutes = totalSeconds / 60
+function updateTimer() {
+    let minutes = Math.floor(totalSeconds / 60)
     let seconds = totalSeconds % 60
 
-    console.log(seconds)
+    timer.innerHTML = `${minutes}:${seconds}`
 }
 
-updateTime()
+setInterval(() => {
+    totalSeconds--
+    updateTimer()
+}, 100);

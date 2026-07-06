@@ -18,6 +18,8 @@ body {
     --tri: #feba17;
     --tri1: #e5b299;
     --tri2: #b4846c;
+    --green: rgb(9, 138, 89);
+    --blue: rgb(0, 191, 255);
 }
 
 @font-face {
@@ -463,4 +465,15 @@ section.allElems {
 
 .pomo-timer button:active {
     box-shadow: 0px 0px 0px black;
+}
+
+.pomo-pg .session {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: var(--green);
+    padding: 15px 30px;
+    font-size: 30px;
+    border-radius: 5px;
 }

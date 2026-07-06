@@ -139,7 +139,9 @@ let timer = document.querySelector('.pomo-timer h1')
 var startBtn = document.querySelector('.pomo-timer .start-timer')
 var pauseBtn = document.querySelector('.pomo-timer .pause-timer')
 var resetBtn = document.querySelector('.pomo-timer .reset-timer')
+var session = document.querySelector('.pomo-pg .session')
 var isWorkSession = true
+
 
 let timerInterval = null
 let totalSeconds = 25 * 60
@@ -160,6 +162,7 @@ function startTimer() {
     clearInterval(timerInterval)
 
     if (isWorkSession) {
+
         totalSeconds = 25 * 60
         timerInterval = setInterval(function () {
             if (totalSeconds > 0) {
@@ -169,10 +172,14 @@ function startTimer() {
             else {
                 isWorkSession = false
                 clearInterval(timerInterval)
+                timer.innerHTML = '05:00'
+                session.innerHTML = 'Break'
+                session.style.backgroundColor = 'var(--blue)'
             }
         }, 1000);
     }
     else {
+
         totalSeconds = 5 * 60
         timerInterval = setInterval(function () {
             if (totalSeconds > 0) {
@@ -182,6 +189,9 @@ function startTimer() {
             else {
                 isWorkSession = true
                 clearInterval(timerInterval)
+                timer.innerHTML = '25:00'
+                session.innerHTML = 'Work Session'
+                session.style.backgroundColor = 'var(--green)'
             }
         }, 1000);
     }

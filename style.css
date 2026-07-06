@@ -61,12 +61,15 @@ section.allElems {
     height: 100%;
     width: 100%;
     padding: 40px;
-    padding-top: 80px;
+    overflow: auto;
+    position: absolute;
+}
+
+.allElems .allFeatures {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 40px;
-    position: absolute;
 }
 
 .elem {

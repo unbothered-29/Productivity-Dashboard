@@ -210,3 +210,13 @@ function pomodoroPage() {
 }
 
 pomodoroPage()
+
+const apiKey = "b1de82898b5c4f8fb74130108260607";
+const city = "Mumbai";
+
+async function weatherApi() {
+    var response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${(apiKey)}&q=${(city)}`)
+    var data = await response.json()
+    console.log(data.current.temp_c);
+}
+weatherApi()

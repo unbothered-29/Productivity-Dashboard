@@ -211,12 +211,101 @@ function pomodoroPage() {
 
 pomodoroPage()
 
-const apiKey = "b1de82898b5c4f8fb74130108260607";
-const city = "Mumbai";
+function weatherFunction() {
+    const apiKey = "b1de82898b5c4f8fb74130108260607";
+    const city = "Mumbai";
 
-async function weatherApi() {
-    var response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${(apiKey)}&q=${(city)}`)
-    var data = await response.json()
-    console.log(data.current.temp_c);
+    var header1Time = document.querySelector('.header1 h1')
+    var header1Date = document.querySelector('.header1 h2')
+    var header2Temp = document.querySelector('.header2 h2')
+    var header2Condition = document.querySelector('.header2 h4')
+    var heatIndex = document.querySelector('.header2 .heat-index')
+    var humidity = document.querySelector('.header2 .humidity')
+    var wind = document.querySelector('.header2 .wind')
+
+
+
+
+
+    var data = null
+
+    async function weatherApi() {
+        var response = await fetch(`http://api.weatherapi.com/v1/current.json?key=${(apiKey)}&q=${(city)}`)
+        data = await response.json()
+
+        header2Temp.innerHTML = `${data.current.temp_c}°C`
+        header2Condition.innerHTML = `${data.current.condition.text}`
+        wind.innerHTML = `Wind: ${data.current.wind_kph}km/h`
+        humidity.innerHTML = `Humidity: ${data.current.humidity}%`
+        heatIndex.innerHTML = `Heat Index: ${data.current.heatindex_c}km/h`
+
+
+
+    }
+    weatherApi()
+
+
+    function timeDate() {
+        const totdaysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        const totMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        var date = new Date()
+        var dayOfWeek = totdaysOfWeek[date.getDay()]
+        var hours = date.getHours()
+        var minutes = date.getMinutes()
+        var minutes = date.getMinutes()
+        var seconds = date.getSeconds()
+        var dates = date.getDate()
+        var month = totMonths[date.getMonth()]
+        var year = date.getFullYear()
+
+
+        header1Date.innerHTML = `${dates} ${month}, ${year}`
+
+        if (hours > 12) {
+            header1Time.innerHTML = `${month}, ${String(hours - 12).padStart('2', '0')}:${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')} AM`
+        }
+        else {
+            header1Time.innerHTML = `${month}, ${String(hours).padStart('2', '0')}:${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')} AM`
+        }
+    }
+    setInterval(() => {
+        timeDate()
+    })
 }
-weatherApi()
+
+weatherFunction()
+
+function theme() {
+
+    var theme = document.querySelector('.theme')
+    var rootElement = document.documentElement
+
+    var flag = 0
+
+    theme.addEventListener('click', function () {
+
+        if (flag == 0) {
+            rootElement.style.setProperty('--pri', '#f8f4e1')
+            rootElement.style.setProperty('--sec', '#222831')
+            rootElement.style.setProperty('--tri1', '#948979')
+            rootElement.style.setProperty('--tri2', '#393e46')
+            flag = 1
+        }
+        else if (flag == 1) {
+            rootElement.style.setProperty('--pri', '#f1efec')
+            rootElement.style.setProperty('--sec', '#030303')
+            rootElement.style.setProperty('--tri1', '#d4c9be')
+            rootElement.style.setProperty('--tri1', '#123458')
+            flag = 2
+        }
+        else if (flag == 2) {
+            rootElement.style.setProperty('--pri', '#f8f4e1')
+            rootElement.style.setProperty('--sec', '#381c0a')
+            rootElement.style.setProperty('--tri1', '#feba17')
+            rootElement.style.setProperty('--tri2', '#74512d')
+            flag = 0
+        }
+    })
+}
+//saarthack
+theme()

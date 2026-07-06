@@ -63,7 +63,32 @@ section.allElems {
     padding: 40px;
     overflow: auto;
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
 }
+
+header .header1 h1 {
+    font-size: 100px;
+}
+
+header .header1 h4 {
+    font-size: 100px;
+}
+
+header .header2 h2 {
+    font-size: 60px;
+}
+
+header .header2 h4 {
+    font-size: 30px;
+}
+
+header .header2 h3 {
+    font-size: 25px;
+}
+
 
 .allElems .allFeatures {
     display: flex;

@@ -147,18 +147,26 @@ function updateTimer() {
     let minutes = Math.floor(totalSeconds / 60)
     let seconds = totalSeconds % 60
 
-    timer.innerHTML = `${minutes}:${seconds}`
+    timer.innerHTML = `${String(minutes).padStart('2', '0')}:${String(seconds).padStart('2', '0')}`
 }
 
-setInterval(() => {
-    totalSeconds--
-    updateTimer()
-}, 1000);
+// setInterval(() => {
+//     totalSeconds--
+//     updateTimer()
+// }, 1000);
 
 function startTimer() {
+    clearInterval(timerInterval)
+
+
     timerInterval = setInterval(function () {
-        totalSeconds--
-        updateTimer()
+        if (totalSeconds > 0) {
+            totalSeconds--
+            updateTimer()
+        }
+        else {
+            clearInterval(timerInterval)
+        }
     }, 1000);
 }
 
@@ -166,5 +174,12 @@ function pauseTimer() {
     clearInterval(timerInterval)
 }
 
+function resetTimer() {
+    totalSeconds = 25 * 60
+    clearInterval(timerInterval)
+    updateTimer()
+}
+
 startBtn.addEventListener('click', startTimer)
 pauseBtn.addEventListener('click', pauseTimer)
+resetBtn.addEventListener('click', resetTimer)

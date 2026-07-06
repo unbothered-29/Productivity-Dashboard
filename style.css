@@ -67,18 +67,18 @@ section.allElems {
 }
 
 header .header1 h1 {
-    font-weight: 500;
-    font-size: 90px;
+    font-weight: 700;
+    font-size: 100px;
 }
 
 header .header1 h4 {
-    font-size: 80px;
+    font-size: 70px;
     font-weight: 500;
 }
 
 header .header2 h2 {
     font-size: 60px;
-    font-weight: 500;
+    font-weight: 700;
 }
 
 header .header2 h4 {

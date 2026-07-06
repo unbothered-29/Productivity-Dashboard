@@ -163,7 +163,6 @@ function startTimer() {
 
     if (isWorkSession) {
 
-        totalSeconds = 25 * 60
         timerInterval = setInterval(function () {
             if (totalSeconds > 0) {
                 totalSeconds--
@@ -173,14 +172,14 @@ function startTimer() {
                 isWorkSession = false
                 clearInterval(timerInterval)
                 timer.innerHTML = '05:00'
-                session.innerHTML = 'Break'
+                session.innerHTML = 'Take A Break'
                 session.style.backgroundColor = 'var(--blue)'
+                totalSeconds = 5 * 60
             }
         }, 1000);
     }
     else {
 
-        totalSeconds = 5 * 60
         timerInterval = setInterval(function () {
             if (totalSeconds > 0) {
                 totalSeconds--
@@ -192,6 +191,7 @@ function startTimer() {
                 timer.innerHTML = '25:00'
                 session.innerHTML = 'Work Session'
                 session.style.backgroundColor = 'var(--green)'
+                totalSeconds = 25 * 60
             }
         }, 1000);
     }

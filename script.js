@@ -139,6 +139,7 @@ let timer = document.querySelector('.pomo-timer h1')
 var startBtn = document.querySelector('.pomo-timer .start-timer')
 var pauseBtn = document.querySelector('.pomo-timer .pause-timer')
 var resetBtn = document.querySelector('.pomo-timer .reset-timer')
+var isWorkSession = true
 
 let timerInterval = null
 let totalSeconds = 25 * 60
@@ -158,16 +159,32 @@ function updateTimer() {
 function startTimer() {
     clearInterval(timerInterval)
 
-
-    timerInterval = setInterval(function () {
-        if (totalSeconds > 0) {
-            totalSeconds--
-            updateTimer()
-        }
-        else {
-            clearInterval(timerInterval)
-        }
-    }, 1000);
+    if (isWorkSession) {
+        totalSeconds = 25 * 60
+        timerInterval = setInterval(function () {
+            if (totalSeconds > 0) {
+                totalSeconds--
+                updateTimer()
+            }
+            else {
+                isWorkSession = false
+                clearInterval(timerInterval)
+            }
+        }, 1000);
+    }
+    else {
+        totalSeconds = 5 * 60
+        timerInterval = setInterval(function () {
+            if (totalSeconds > 0) {
+                totalSeconds--
+                updateTimer()
+            }
+            else {
+                isWorkSession = true
+                clearInterval(timerInterval)
+            }
+        }, 1000);
+    }
 }
 
 function pauseTimer() {

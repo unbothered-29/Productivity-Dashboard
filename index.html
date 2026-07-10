@@ -85,23 +85,19 @@
                     <div class="task">
                         <h5>Commits</h5>
                         <button>Mark as Completed</button>
-                        <!-- <button>Delete</button> -->
                     </div>
                     <div class="task">
                         <h5>React Js</h5>
                         <button>Mark as Completed</button>
-                        <!-- <button>Delete</button> -->
                     </div>
                     <div class="task">
                         <h5>Project</h5>
                         <button>Mark as Completed</button>
-                        <!-- <button>Delete</button> -->
                     </div>
 
                     <div class="task">
                         <h5>Yt Videos</h5>
                         <button>Mark as Completed</button>
-                        <!-- <button>Delete</button> -->
                     </div>
 
                 </div>
@@ -148,7 +144,53 @@
         </section>
         <section class="fullElem goals-pg">
             <button class="back" id="4">Close</button>
-            <h1>Monthly Goals</h1>
+            <h2>Plan Your Daily Goals</h2>
+
+            <div class="goals-container">
+                <div class="goals-side">
+                    <div class="mini-cal">
+                        <div class="mini-cal-head">
+                            <h3></h3>
+                            <div class="mini-cal-nav">
+                                <button class="cal-prev"><i class="ri-arrow-left-s-line"></i></button>
+                                <button class="cal-next"><i class="ri-arrow-right-s-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="mini-cal-days"></div>
+                        <div class="mini-cal-dates"></div>
+                    </div>
+
+                    <div class="goals-checklist">
+                        <div class="goals-checklist-head">
+                            <h3></h3>
+                            <span class="goals-count">0/0</span>
+                        </div>
+                        <div class="goals-list"></div>
+                        <form class="add-goal-form">
+                            <select class="goal-color">
+                                <option value="tri">Orange</option>
+                                <option value="green">Green</option>
+                                <option value="blue">Blue</option>
+                            </select>
+                            <input class="goal-time" type="time">
+                            <input class="goal-text" type="text" placeholder="Add a goal...">
+                            <button type="submit"><i class="ri-add-line"></i></button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="goals-week">
+                    <div class="goals-week-head">
+                        <h3></h3>
+                        <div class="week-nav">
+                            <button class="week-today">Today</button>
+                            <button class="week-prev"><i class="ri-arrow-left-s-line"></i></button>
+                            <button class="week-next"><i class="ri-arrow-right-s-line"></i></button>
+                        </div>
+                    </div>
+                    <div class="week-grid"></div>
+                </div>
+            </div>
         </section>
 
     </div>

@@ -690,6 +690,13 @@ nav .nav-in {
 }
 
 /* Mini calendar */
+option #tri {
+    background-color: white;
+    height: 10px;
+    width: 10px;
+    color: red;
+    border-radius: 50%;
+}
 
 .mini-cal {
     background-color: var(--tri2);

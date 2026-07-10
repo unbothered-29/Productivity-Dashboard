@@ -387,7 +387,7 @@ function dailyGoals() {
         if (goals.length === 0) {
             list.innerHTML = `<p class="no-goals">No goals added yet.</p>`
         }
-        else {
+        else if (goals.length >= 20) {
             list.innerHTML = goals.map(function (g, idx) {
                 return `<div class="goal-item ${g.done ? 'done' : ''}" style="border-left-color: var(--${g.color})">
                     <input type="checkbox" data-idx="${idx}" ${g.done ? 'checked' : ''}>

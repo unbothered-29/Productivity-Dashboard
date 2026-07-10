@@ -397,6 +397,9 @@ function dailyGoals() {
                 </div>`
             }).join('')
         }
+        else{
+            list.innerHTML = `<p class="no-goals">Limited Exceeded.</p>`
+        }
 
         list.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
             cb.addEventListener('change', function () {

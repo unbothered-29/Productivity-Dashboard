@@ -666,3 +666,404 @@ nav .nav-in {
 .theme:active {
     scale: 0.96;
 }
+
+.goals-pg h2 {
+    font-size: 55px;
+}
+
+.goals-container {
+    height: 82%;
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.goals-side {
+    width: 30%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Mini calendar */
+
+.mini-cal {
+    background-color: var(--tri2);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.mini-cal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.mini-cal-head h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.mini-cal-nav {
+    display: flex;
+    gap: 8px;
+}
+
+.mini-cal-nav button {
+    background-color: var(--sec);
+    color: var(--pri);
+    border: none;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.mini-cal-nav button:active {
+    scale: 0.93;
+}
+
+.mini-cal-days,
+.mini-cal-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.mini-cal-days span {
+    display: block;
+    text-align: center;
+    font-size: 11px;
+    opacity: 0.5;
+    margin-bottom: 8px;
+}
+
+.mini-cal-dates span {
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin: 2px 0;
+}
+
+.mini-cal-dates span.other-month {
+    opacity: 0.2;
+    cursor: default;
+}
+
+.mini-cal-dates span.today {
+    border: 1px solid var(--tri);
+}
+
+.mini-cal-dates span.selected {
+    background-color: var(--tri);
+    color: var(--sec);
+    font-weight: 700;
+}
+
+/* Checklist */
+
+.goals-checklist {
+    background-color: var(--tri2);
+    border-radius: 20px;
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.goals-checklist-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.goals-checklist-head h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.goals-count {
+    background-color: var(--sec);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--tri);
+}
+
+.goals-list {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.no-goals {
+    font-size: 13px;
+    opacity: 0.5;
+}
+
+.goal-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--sec);
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-left: 4px solid var(--tri);
+}
+
+.goal-item input[type="checkbox"] {
+    scale: 1.1;
+    accent-color: var(--tri);
+    cursor: pointer;
+}
+
+.goal-item .goal-time {
+    font-size: 11px;
+    opacity: 0.6;
+    min-width: 48px;
+}
+
+.goal-item .goal-text {
+    flex: 1;
+    font-size: 14px;
+}
+
+.goal-item.done .goal-text {
+    text-decoration: line-through;
+    opacity: 0.45;
+}
+
+.goal-delete {
+    background: none;
+    border: none;
+    color: var(--pri);
+    opacity: 0.5;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.goal-delete:hover {
+    opacity: 1;
+    color: var(--red);
+}
+
+.add-goal-form {
+    display: flex;
+    gap: 6px;
+}
+
+.add-goal-form .goal-color {
+    max-width: 60px;
+}
+
+.add-goal-form .goal-time {
+    max-width: 90px;
+}
+
+.add-goal-form select,
+.add-goal-form input {
+    background-color: var(--sec);
+    border: none;
+    outline: none;
+    color: var(--pri);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
+.add-goal-form .goal-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.add-goal-form button {
+    background-color: var(--tri);
+    border: none;
+    border-radius: 6px;
+    width: 34px;
+    font-size: 18px;
+    cursor: pointer;
+    color: var(--sec);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-goal-form button:active {
+    scale: 0.93;
+}
+
+/* Weekly board */
+
+.goals-week {
+    flex: 1;
+    height: 100%;
+    background-color: var(--tri2);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.goals-week-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.goals-week-head h3 {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.week-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.week-nav .week-today {
+    background-color: var(--pri);
+    color: var(--sec);
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.week-nav .week-prev,
+.week-nav .week-next {
+    background-color: var(--sec);
+    color: var(--pri);
+    border: none;
+    border-radius: 6px;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.week-nav button:active {
+    scale: 0.93;
+}
+
+.week-grid {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    overflow-y: auto;
+}
+
+.week-day {
+    background-color: var(--sec);
+    border-radius: 12px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    cursor: pointer;
+    min-height: 100%;
+}
+
+.week-day.selected-day {
+    outline: 2px solid var(--tri);
+}
+
+.week-day-head {
+    text-align: center;
+    padding-bottom: 8px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.week-day-head .dow {
+    display: block;
+    font-size: 10px;
+    opacity: 0.5;
+}
+
+.week-day-head .dom {
+    display: block;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.week-day-head.is-today .dom {
+    color: var(--tri);
+}
+
+.week-day-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow-y: auto;
+}
+
+.week-card {
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--sec);
+    line-height: 1.3;
+    word-break: break-word;
+}
+
+.week-card .wc-time {
+    display: block;
+    font-size: 9px;
+    font-weight: 700;
+    opacity: 0.75;
+    margin-bottom: 2px;
+}
+
+.week-card.done {
+    opacity: 0.4;
+    text-decoration: line-through;
+}
+
+.week-card.color-tri {
+    background-color: var(--tri);
+}
+
+.week-card.color-green {
+    background-color: var(--green);
+    color: var(--pri);
+}
+
+.week-card.color-blue {
+    background-color: var(--blue);
+}
+
+.week-day-cards::-webkit-scrollbar,
+.goals-list::-webkit-scrollbar,
+.week-grid::-webkit-scrollbar {
+    width: 5px;
+}
+
+.week-day-cards::-webkit-scrollbar-thumb,
+.goals-list::-webkit-scrollbar-thumb,
+.week-grid::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+}

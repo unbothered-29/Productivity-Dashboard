@@ -309,3 +309,226 @@ function theme() {
 }
 //saarthack
 theme()
+
+function dailyGoals() {
+    var goalsData = JSON.parse(localStorage.getItem('goalsData')) || {}
+    var selectedDate = new Date()
+    var calViewDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1)
+
+    var dowShort = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+
+    function fmtDate(d) {
+        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+    }
+
+    function saveGoals() {
+        localStorage.setItem('goalsData', JSON.stringify(goalsData))
+    }
+
+    function renderMiniCal() {
+        var head = document.querySelector('.mini-cal-head h3')
+        var daysRow = document.querySelector('.mini-cal-days')
+        var datesGrid = document.querySelector('.mini-cal-dates')
+
+        head.innerHTML = `${monthNames[calViewDate.getMonth()]} ${calViewDate.getFullYear()}`
+        daysRow.innerHTML = dowShort.map(function (d) { return `<span>${d}</span>` }).join('')
+
+        var firstOfMonth = new Date(calViewDate.getFullYear(), calViewDate.getMonth(), 1)
+        var startOffset = (firstOfMonth.getDay() + 6) % 7
+        var daysInMonth = new Date(calViewDate.getFullYear(), calViewDate.getMonth() + 1, 0).getDate()
+        var daysInPrevMonth = new Date(calViewDate.getFullYear(), calViewDate.getMonth(), 0).getDate()
+
+        var cellsHtml = ''
+
+        for (var i = 0; i < startOffset; i++) {
+            var prevDayNum = daysInPrevMonth - startOffset + 1 + i
+            cellsHtml = cellsHtml + `<span class="other-month">${prevDayNum}</span>`
+        }
+
+        for (var d = 1; d <= daysInMonth; d++) {
+            var thisDate = new Date(calViewDate.getFullYear(), calViewDate.getMonth(), d)
+            var classes = []
+            if (fmtDate(thisDate) === fmtDate(new Date())) classes.push('today')
+            if (fmtDate(thisDate) === fmtDate(selectedDate)) classes.push('selected')
+            cellsHtml = cellsHtml + `<span class="${classes.join(' ')}" data-date="${fmtDate(thisDate)}">${d}</span>`
+        }
+
+        var totalCells = startOffset + daysInMonth
+        var remaining = (7 - (totalCells % 7)) % 7
+        for (var n = 1; n <= remaining; n++) {
+            cellsHtml = cellsHtml + `<span class="other-month">${n}</span>`
+        }
+
+        datesGrid.innerHTML = cellsHtml
+
+        datesGrid.querySelectorAll('span[data-date]').forEach(function (span) {
+            span.addEventListener('click', function () {
+                var parts = this.dataset.date.split('-')
+                selectedDate = new Date(parts[0], parts[1] - 1, parts[2])
+                renderAll()
+            })
+        })
+    }
+
+    function renderChecklist() {
+        var head = document.querySelector('.goals-checklist-head h3')
+        var count = document.querySelector('.goals-count')
+        var list = document.querySelector('.goals-list')
+
+        var dateKey = fmtDate(selectedDate)
+        var isToday = dateKey === fmtDate(new Date())
+        head.innerHTML = isToday ? "Today's Goals" : `Goals - ${selectedDate.getDate()} ${monthNames[selectedDate.getMonth()]}`
+
+        var goals = goalsData[dateKey] || []
+        var doneCount = goals.filter(function (g) { return g.done }).length
+        count.innerHTML = `${doneCount}/${goals.length}`
+
+        if (goals.length === 0) {
+            list.innerHTML = `<p class="no-goals">No goals added yet.</p>`
+        }
+        else {
+            list.innerHTML = goals.map(function (g, idx) {
+                return `<div class="goal-item ${g.done ? 'done' : ''}" style="border-left-color: var(--${g.color})">
+                    <input type="checkbox" data-idx="${idx}" ${g.done ? 'checked' : ''}>
+                    <span class="goal-time">${g.time || ''}</span>
+                    <span class="goal-text">${g.text}</span>
+                    <button class="goal-delete" data-idx="${idx}"><i class="ri-close-line"></i></button>
+                </div>`
+            }).join('')
+        }
+
+        list.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
+            cb.addEventListener('change', function () {
+                goalsData[dateKey][this.dataset.idx].done = this.checked
+                saveGoals()
+                renderAll()
+            })
+        })
+
+        list.querySelectorAll('.goal-delete').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                goalsData[dateKey].splice(this.dataset.idx, 1)
+                saveGoals()
+                renderAll()
+            })
+        })
+    }
+
+    function getWeekDates(d) {
+        var dayIdx = (d.getDay() + 6) % 7
+        var monday = new Date(d)
+        monday.setDate(d.getDate() - dayIdx)
+
+        var week = []
+        for (var i = 0; i < 7; i++) {
+            var wd = new Date(monday)
+            wd.setDate(monday.getDate() + i)
+            week.push(wd)
+        }
+        return week
+    }
+
+    function renderWeek() {
+        var head = document.querySelector('.goals-week-head h3')
+        var grid = document.querySelector('.week-grid')
+
+        var week = getWeekDates(selectedDate)
+        head.innerHTML = `${monthNames[week[0].getMonth()]} ${week[0].getDate()} - ${week[6].getDate()}, ${week[6].getFullYear()}`
+
+        grid.innerHTML = week.map(function (wd) {
+            var dateKey = fmtDate(wd)
+            var goals = (goalsData[dateKey] || []).slice().sort(function (a, b) {
+                return (a.time || '').localeCompare(b.time || '')
+            })
+            var isSelected = dateKey === fmtDate(selectedDate)
+            var isToday = dateKey === fmtDate(new Date())
+
+            var cardsHtml = goals.length === 0
+                ? `<p class="no-goals">-</p>`
+                : goals.map(function (g) {
+                    return `<div class="week-card color-${g.color} ${g.done ? 'done' : ''}">
+                        ${g.time ? `<span class="wc-time">${g.time}</span>` : ''}${g.text}
+                    </div>`
+                }).join('')
+
+            return `<div class="week-day ${isSelected ? 'selected-day' : ''}" data-date="${dateKey}">
+                <div class="week-day-head ${isToday ? 'is-today' : ''}">
+                    <span class="dow">${dowShort[(wd.getDay() + 6) % 7]}</span>
+                    <span class="dom">${wd.getDate()}</span>
+                </div>
+                <div class="week-day-cards">${cardsHtml}</div>
+            </div>`
+        }).join('')
+
+        grid.querySelectorAll('.week-day').forEach(function (col) {
+            col.addEventListener('click', function () {
+                var parts = this.dataset.date.split('-')
+                selectedDate = new Date(parts[0], parts[1] - 1, parts[2])
+                renderAll()
+            })
+        })
+    }
+
+    function renderAll() {
+        calViewDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1)
+        renderMiniCal()
+        renderChecklist()
+        renderWeek()
+    }
+
+    document.querySelector('.cal-prev').addEventListener('click', function () {
+        calViewDate.setMonth(calViewDate.getMonth() - 1)
+        renderMiniCal()
+    })
+
+    document.querySelector('.cal-next').addEventListener('click', function () {
+        calViewDate.setMonth(calViewDate.getMonth() + 1)
+        renderMiniCal()
+    })
+
+    document.querySelector('.week-prev').addEventListener('click', function () {
+        selectedDate.setDate(selectedDate.getDate() - 7)
+        renderAll()
+    })
+
+    document.querySelector('.week-next').addEventListener('click', function () {
+        selectedDate.setDate(selectedDate.getDate() + 7)
+        renderAll()
+    })
+
+    document.querySelector('.week-today').addEventListener('click', function () {
+        selectedDate = new Date()
+        renderAll()
+    })
+
+    document.querySelector('.add-goal-form').addEventListener('submit', function (e) {
+        e.preventDefault()
+
+        var textInput = document.querySelector('.goal-text')
+        var timeInput = document.querySelector('.goal-time')
+        var colorInput = document.querySelector('.goal-color')
+
+        if (!textInput.value.trim()) return
+
+        var dateKey = fmtDate(selectedDate)
+        if (!goalsData[dateKey]) goalsData[dateKey] = []
+
+        goalsData[dateKey].push({
+            text: textInput.value,
+            time: timeInput.value,
+            color: colorInput.value,
+            done: false
+        })
+
+        saveGoals()
+
+        textInput.value = ''
+        timeInput.value = ''
+
+        renderAll()
+    })
+    renderAll()
+}
+
+dailyGoals()

@@ -387,7 +387,6 @@ function dailyGoals() {
         }
         else {
             // list.innerHTML = goals.map(function (g) {
-            //     return `<div class="goal-item ${g.done ? 'done' : ''}" style="border-left-color: var(--${g.color})">
            
         }
 

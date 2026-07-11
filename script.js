@@ -391,7 +391,6 @@ function dailyGoals() {
             //         <input type="checkbox" data-id="${g.id}" ${g.done ? 'checked' : ''}>
             //         <span class="goal-time">${g.time || ''}</span>
             //         <span class="goal-text">${g.text}</span>
-            //         <button class="goal-delete" data-id="${g.id}"><i class="ri-close-line"></i></button>
            
         }
 

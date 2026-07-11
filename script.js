@@ -392,7 +392,6 @@ function dailyGoals() {
             //         <span class="goal-time">${g.time || ''}</span>
             //         <span class="goal-text">${g.text}</span>
             //         <button class="goal-delete" data-id="${g.id}"><i class="ri-close-line"></i></button>
-            //     </div>`
            
         }
 

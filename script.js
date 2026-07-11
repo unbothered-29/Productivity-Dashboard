@@ -393,7 +393,7 @@ function dailyGoals() {
             //         <span class="goal-text">${g.text}</span>
             //         <button class="goal-delete" data-id="${g.id}"><i class="ri-close-line"></i></button>
             //     </div>`
-            // }).join('')
+           
         }
 
         list.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {

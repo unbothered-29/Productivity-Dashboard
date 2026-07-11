@@ -31,7 +31,6 @@ function openFeatures() {
 
 openFeatures()
 
-
 var currentTask = []
 if (localStorage.getItem('currentTask')) {
     currentTask = JSON.parse(localStorage.getItem('currentTask'))
@@ -579,13 +578,20 @@ function theme() {
             flag = 1
         }
         else if (flag == 1) {
-            rootElement.style.setProperty('--pri', '#f1efec')
-            rootElement.style.setProperty('--sec', '#030303')
-            rootElement.style.setProperty('--tri1', '#d4c9be')
-            rootElement.style.setProperty('--tri1', '#123458')
+            rootElement.style.setProperty('--pri', '#f8dffa')
+            rootElement.style.setProperty('--sec', '#37023d')
+            rootElement.style.setProperty('--tri1', '#9f5ea5')
+            rootElement.style.setProperty('--tri2', '#610c69')
             flag = 2
         }
         else if (flag == 2) {
+            rootElement.style.setProperty('--pri', '#f1efec')
+            rootElement.style.setProperty('--sec', '#030303')
+            rootElement.style.setProperty('--tri1', '#d4c9be')
+            rootElement.style.setProperty('--tri2', '#123458')
+            flag = 3
+        }
+        else if (flag == 3) {
             rootElement.style.setProperty('--pri', '#f8f4e1')
             rootElement.style.setProperty('--sec', '#381c0a')
             rootElement.style.setProperty('--tri1', '#feba17')

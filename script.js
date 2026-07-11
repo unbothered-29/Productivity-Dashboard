@@ -386,7 +386,6 @@ function dailyGoals() {
             list.innerHTML = `<p class="no-goals">No goals added yet.</p>`
         }
         else {
-            // list.innerHTML = goals.map(function (g) {
            
         }
 

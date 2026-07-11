@@ -386,7 +386,7 @@ function dailyGoals() {
             list.innerHTML = `<p class="no-goals">No goals added yet.</p>`
         }
         else {
-           
+            list.innerHTML = `<p class="no-goals">Goal added.</p>`
         }
 
         list.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {

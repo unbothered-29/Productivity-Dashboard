@@ -1,3 +1,16 @@
+function syncNavOffset() {
+    var navEl = document.querySelector('nav')
+    var allElemsEl = document.querySelector('.allElems')
+
+    if (!navEl || !allElemsEl) return
+
+    allElemsEl.style.paddingTop = (navEl.offsetHeight + 15) + 'px'
+}
+
+syncNavOffset()
+window.addEventListener('load', syncNavOffset)
+window.addEventListener('resize', syncNavOffset)
+
 function openFeatures() {
     var allElems = document.querySelectorAll('.elem')
     var allFullElems = document.querySelectorAll('.fullElem')
@@ -275,40 +288,6 @@ function weatherFunction() {
 
 weatherFunction()
 
-function theme() {
-
-    var theme = document.querySelector('.theme')
-    var rootElement = document.documentElement
-
-    var flag = 0
-
-    theme.addEventListener('click', function () {
-
-        if (flag == 0) {
-            rootElement.style.setProperty('--pri', '#f8f4e1')
-            rootElement.style.setProperty('--sec', '#222831')
-            rootElement.style.setProperty('--tri1', '#948979')
-            rootElement.style.setProperty('--tri2', '#393e46')
-            flag = 1
-        }
-        else if (flag == 1) {
-            rootElement.style.setProperty('--pri', '#f1efec')
-            rootElement.style.setProperty('--sec', '#030303')
-            rootElement.style.setProperty('--tri1', '#d4c9be')
-            rootElement.style.setProperty('--tri1', '#123458')
-            flag = 2
-        }
-        else if (flag == 2) {
-            rootElement.style.setProperty('--pri', '#f8f4e1')
-            rootElement.style.setProperty('--sec', '#381c0a')
-            rootElement.style.setProperty('--tri1', '#feba17')
-            rootElement.style.setProperty('--tri2', '#74512d')
-            flag = 0
-        }
-    })
-}
-//saarthack
-theme()
 function dailyGoals() {
     var goalsData = JSON.parse(localStorage.getItem('goalsData')) || {}
     var selectedDate = new Date()
@@ -582,3 +561,38 @@ function dailyGoals() {
 }
 
 dailyGoals()
+
+function theme() {
+
+    var theme = document.querySelector('.theme')
+    var rootElement = document.documentElement
+
+    var flag = 0
+
+    theme.addEventListener('click', function () {
+
+        if (flag == 0) {
+            rootElement.style.setProperty('--pri', '#f8f4e1')
+            rootElement.style.setProperty('--sec', '#222831')
+            rootElement.style.setProperty('--tri1', '#948979')
+            rootElement.style.setProperty('--tri2', '#393e46')
+            flag = 1
+        }
+        else if (flag == 1) {
+            rootElement.style.setProperty('--pri', '#f1efec')
+            rootElement.style.setProperty('--sec', '#030303')
+            rootElement.style.setProperty('--tri1', '#d4c9be')
+            rootElement.style.setProperty('--tri1', '#123458')
+            flag = 2
+        }
+        else if (flag == 2) {
+            rootElement.style.setProperty('--pri', '#f8f4e1')
+            rootElement.style.setProperty('--sec', '#381c0a')
+            rootElement.style.setProperty('--tri1', '#feba17')
+            rootElement.style.setProperty('--tri2', '#74512d')
+            flag = 0
+        }
+    })
+}
+//saarthack
+theme()

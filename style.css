@@ -837,9 +837,8 @@ nav .nav-in {
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
     flex-direction: column;
-    min-height: 10px;
-    margin-top: -5px;
-    margin-bottom: 5px;
+    min-height: 12vw;
+    margin-top: -7px;
 }
 
 .goals-checklist-head {

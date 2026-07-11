@@ -2,7 +2,7 @@
 
 A sleek, all-in-one productivity dashboard built with vanilla JavaScript, featuring a to-do list, daily planner, motivational quotes, a Pomodoro timer, and a monthly goals tracker — all wrapped in a smooth, animated UI with multiple theme options.
 
-**Live Demo:**https://productivity-dashboard-three-sigma.vercel.app/
+Live Demo: https://productivity-dashboard-three-sigma.vercel.app/
 
 ## Features
 

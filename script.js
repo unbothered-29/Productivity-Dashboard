@@ -390,7 +390,6 @@ function dailyGoals() {
             //     return `<div class="goal-item ${g.done ? 'done' : ''}" style="border-left-color: var(--${g.color})">
             //         <input type="checkbox" data-id="${g.id}" ${g.done ? 'checked' : ''}>
             //         <span class="goal-time">${g.time || ''}</span>
-            //         <span class="goal-text">${g.text}</span>
            
         }
 

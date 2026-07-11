@@ -167,14 +167,46 @@
                         </div>
                         <div class="goals-list"></div>
                         <form class="add-goal-form">
-                            <select class="goal-color">
-                                <option value="tri">Orange</option>
-                                <option value="green">Green</option>
-                                <option value="blue">Blue</option>
-                            </select>
-                            <input class="goal-time" type="time">
-                            <input class="goal-text" type="text" placeholder="Add a goal...">
-                            <button type="submit"><i class="ri-add-line"></i></button>
+                            <div class="flex">
+                                <div class="goal-color-picker">
+                                    <span class="color-circle color-blue selected" data-color="blue"></span>
+                                    <span class="color-circle color-red" data-color="red"></span>
+                                    <span class="color-circle color-green" data-color="green"></span>
+                                    <span class="color-circle color-purple" data-color="purple"></span>
+                                </div>
+                                <div class="goal-time-picker">
+                                    <select class="goal-hour">
+                                        <option value="1">01</option>
+                                        <option value="2">02</option>
+                                        <option value="3">03</option>
+                                        <option value="4">04</option>
+                                        <option value="5">05</option>
+                                        <option value="6">06</option>
+                                        <option value="7">07</option>
+                                        <option value="8">08</option>
+                                        <option value="9">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12" selected>12</option>
+                                    </select>
+                                    <span>:</span>
+                                    <select class="goal-minute">
+                                        <option value="00" selected>00</option>
+                                        <option value="15">15</option>
+                                        <option value="30">30</option>
+                                        <option value="45">45</option>
+                                    </select>
+                                    <select class="goal-meridiem">
+                                        <option value="AM" selected>AM</option>
+                                        <option value="PM">PM</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="goal-text-row">
+                                <input class="goal-text" type="text" placeholder="Add a goal...">
+                                <button type="submit"><i class="ri-add-line"></i></button>
+                            </div>
+                            <p class="goal-limit-msg" style="display:none">Max 20 goals reached for this day.</p>
                         </form>
                     </div>
                 </div>
@@ -192,7 +224,6 @@
                 </div>
             </div>
         </section>
-
     </div>
     <script src="script.js"></script>
 </body>

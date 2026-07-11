@@ -309,11 +309,12 @@ function theme() {
 }
 //saarthack
 theme()
-
 function dailyGoals() {
     var goalsData = JSON.parse(localStorage.getItem('goalsData')) || {}
     var selectedDate = new Date()
     var calViewDate = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1)
+    var selectedColor = 'blue'
+    var MAX_GOALS_PER_DAY = 20
 
     var dowShort = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     var monthNames = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -324,6 +325,19 @@ function dailyGoals() {
 
     function saveGoals() {
         localStorage.setItem('goalsData', JSON.stringify(goalsData))
+    }
+
+    // converts "09:30 AM" into minutes since midnight, for sorting
+    function timeToMinutes(t) {
+        if (!t) return 9999
+        var parts = t.split(' ')
+        var hm = parts[0].split(':')
+        var hour = parseInt(hm[0])
+        var minute = parseInt(hm[1])
+        var meridiem = parts[1]
+        if (meridiem === 'AM' && hour === 12) hour = 0
+        if (meridiem === 'PM' && hour !== 12) hour = hour + 12
+        return hour * 60 + minute
     }
 
     function renderMiniCal() {
@@ -382,28 +396,32 @@ function dailyGoals() {
 
         var goals = goalsData[dateKey] || []
         var doneCount = goals.filter(function (g) { return g.done }).length
-        count.innerHTML = `${doneCount}/${goals.length}`
+        count.innerHTML = `${doneCount}/${goals.length} <span style="opacity:.6">(max ${MAX_GOALS_PER_DAY})</span>`
+
+        var submitBtn = document.querySelector('.goal-text-row button')
+        var limitMsg = document.querySelector('.goal-limit-msg')
+        var atLimit = goals.length >= MAX_GOALS_PER_DAY
+        if (submitBtn) submitBtn.disabled = atLimit
+        if (limitMsg) limitMsg.style.display = atLimit ? 'block' : 'none'
 
         if (goals.length === 0) {
             list.innerHTML = `<p class="no-goals">No goals added yet.</p>`
         }
-        else if (goals.length >= 20) {
-            list.innerHTML = goals.map(function (g, idx) {
+        else {
+            list.innerHTML = goals.map(function (g) {
                 return `<div class="goal-item ${g.done ? 'done' : ''}" style="border-left-color: var(--${g.color})">
-                    <input type="checkbox" data-idx="${idx}" ${g.done ? 'checked' : ''}>
+                    <input type="checkbox" data-id="${g.id}" ${g.done ? 'checked' : ''}>
                     <span class="goal-time">${g.time || ''}</span>
                     <span class="goal-text">${g.text}</span>
-                    <button class="goal-delete" data-idx="${idx}"><i class="ri-close-line"></i></button>
+                    <button class="goal-delete" data-id="${g.id}"><i class="ri-close-line"></i></button>
                 </div>`
             }).join('')
-        }
-        else{
-            list.innerHTML = `<p class="no-goals">Limited Exceeded.</p>`
         }
 
         list.querySelectorAll('input[type="checkbox"]').forEach(function (cb) {
             cb.addEventListener('change', function () {
-                goalsData[dateKey][this.dataset.idx].done = this.checked
+                var goal = goalsData[dateKey].find(function (g) { return g.id === cb.dataset.id })
+                if (goal) goal.done = this.checked
                 saveGoals()
                 renderAll()
             })
@@ -411,7 +429,7 @@ function dailyGoals() {
 
         list.querySelectorAll('.goal-delete').forEach(function (btn) {
             btn.addEventListener('click', function () {
-                goalsData[dateKey].splice(this.dataset.idx, 1)
+                goalsData[dateKey] = goalsData[dateKey].filter(function (g) { return g.id !== btn.dataset.id })
                 saveGoals()
                 renderAll()
             })
@@ -442,7 +460,7 @@ function dailyGoals() {
         grid.innerHTML = week.map(function (wd) {
             var dateKey = fmtDate(wd)
             var goals = (goalsData[dateKey] || []).slice().sort(function (a, b) {
-                return (a.time || '').localeCompare(b.time || '')
+                return timeToMinutes(a.time) - timeToMinutes(b.time)
             })
             var isSelected = dateKey === fmtDate(selectedDate)
             var isToday = dateKey === fmtDate(new Date())
@@ -451,6 +469,7 @@ function dailyGoals() {
                 ? `<p class="no-goals">-</p>`
                 : goals.map(function (g) {
                     return `<div class="week-card color-${g.color} ${g.done ? 'done' : ''}">
+                        <button class="wc-delete" data-date="${dateKey}" data-id="${g.id}"><i class="ri-close-line"></i></button>
                         ${g.time ? `<span class="wc-time">${g.time}</span>` : ''}${g.text}
                     </div>`
                 }).join('')
@@ -465,9 +484,20 @@ function dailyGoals() {
         }).join('')
 
         grid.querySelectorAll('.week-day').forEach(function (col) {
-            col.addEventListener('click', function () {
+            col.addEventListener('click', function (e) {
+                if (e.target.closest('.wc-delete')) return
                 var parts = this.dataset.date.split('-')
                 selectedDate = new Date(parts[0], parts[1] - 1, parts[2])
+                renderAll()
+            })
+        })
+
+        grid.querySelectorAll('.wc-delete').forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                e.stopPropagation()
+                var key = this.dataset.date
+                goalsData[key] = goalsData[key].filter(function (g) { return g.id !== btn.dataset.id })
+                saveGoals()
                 renderAll()
             })
         })
@@ -505,32 +535,49 @@ function dailyGoals() {
         renderAll()
     })
 
+    document.querySelectorAll('.color-circle').forEach(function (circle) {
+        circle.addEventListener('click', function () {
+            document.querySelectorAll('.color-circle').forEach(function (c) { c.classList.remove('selected') })
+            this.classList.add('selected')
+            selectedColor = this.dataset.color
+        })
+    })
+
     document.querySelector('.add-goal-form').addEventListener('submit', function (e) {
         e.preventDefault()
 
         var textInput = document.querySelector('.goal-text')
-        var timeInput = document.querySelector('.goal-time')
-        var colorInput = document.querySelector('.goal-color')
+        var hourInput = document.querySelector('.goal-hour')
+        var minuteInput = document.querySelector('.goal-minute')
+        var meridiemInput = document.querySelector('.goal-meridiem')
 
         if (!textInput.value.trim()) return
 
         var dateKey = fmtDate(selectedDate)
         if (!goalsData[dateKey]) goalsData[dateKey] = []
 
+        if (goalsData[dateKey].length >= MAX_GOALS_PER_DAY) {
+            renderAll()
+            return
+        }
+
+        var timeStr = `${hourInput.value.padStart(2, '0')}:${minuteInput.value} ${meridiemInput.value}`
+
         goalsData[dateKey].push({
+            id: Date.now().toString(36) + Math.random().toString(36).slice(2, 7),
             text: textInput.value,
-            time: timeInput.value,
-            color: colorInput.value,
+            time: timeStr,
+            color: selectedColor,
             done: false
         })
 
         saveGoals()
 
         textInput.value = ''
-        timeInput.value = ''
 
         renderAll()
     })
+
     renderAll()
 }
 

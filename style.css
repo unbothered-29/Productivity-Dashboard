@@ -1308,9 +1308,17 @@ nav .nav-in {
     top: 0;
 }
 
-/* TABLET (≤ 1024px) */
+/* Fix baked-in card title text getting cropped at non-desktop sizes */
+.elem img {
+  object-position: top;
+}
 
+/* ============================================
+   TABLET (≤ 1024px)
+============================================ */
 @media (max-width: 1024px) {
+
+  /* Nav */
   nav { padding: 20px; }
   .nav-in { padding: 16px 22px; }
   .nav-in h2 { font-size: 22px; }
@@ -1334,8 +1342,8 @@ nav .nav-in {
   header .header2 h4 { font-size: 22px; margin-bottom: 20px; }
   header .header2 h3 { font-size: 15px; }
 
-  /* Feature cards -> 2 per row */
-  .elem { width: 45%; height: 240px; }
+  /* Feature cards -> 2 per row, aspect-ratio instead of fixed height */
+  .elem { width: 45%; height: auto; aspect-ratio: 4 / 3; }
   .elem h2 { font-size: 22px; }
 
   /* Full-page panels */
@@ -1366,10 +1374,11 @@ nav .nav-in {
   .goals-container { gap: 15px; }
   .goals-side { width: 38%; }
   .goals-checklist { min-height: 18vw; }
-  .week-day-cards { max-height: none; }
 }
 
-/*MOBILE */
+/* ============================================
+   MOBILE (≤ 600px)
+============================================ */
 @media (max-width: 600px) {
 
   /* Nav */
@@ -1396,9 +1405,9 @@ nav .nav-in {
   header .header2 h4 { font-size: 16px; margin-bottom: 12px; }
   header .header2 h3 { font-size: 13px; }
 
-  /* Feature cards -> full width stacked */
+  /* Feature cards -> full width, aspect-ratio instead of fixed height */
   .allElems .allFeatures { gap: 20px; }
-  .elem { width: 100%; height: 190px; }
+  .elem { width: 100%; height: auto; aspect-ratio: 3 / 2; }
   .elem h2 { font-size: 20px; right: 6%; }
 
   /* Full-page panels */

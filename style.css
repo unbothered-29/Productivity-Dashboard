@@ -1307,3 +1307,178 @@ nav .nav-in {
     position: fixed;
     top: 0;
 }
+
+/* TABLET (≤ 1024px) */
+
+@media (max-width: 1024px) {
+  nav { padding: 20px; }
+  .nav-in { padding: 16px 22px; }
+  .nav-in h2 { font-size: 22px; }
+  .theme { padding: 10px 16px; }
+  .theme h4 { font-size: 16px; }
+  .wrap { height: 100px; }
+  #main { padding-top: 80px; }
+  section.allElems { padding: 110px 25px 60px 25px; }
+
+  /* Dashboard header */
+  .allElems header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+    padding: 30px;
+  }
+  header .header1 h1 { font-size: 48px; margin-bottom: 25px; }
+  header .header1 h2,
+  header .header1 h4 { font-size: 24px; }
+  header .header2 h2 { font-size: 42px; }
+  header .header2 h4 { font-size: 22px; margin-bottom: 20px; }
+  header .header2 h3 { font-size: 15px; }
+
+  /* Feature cards -> 2 per row */
+  .elem { width: 45%; height: 240px; }
+  .elem h2 { font-size: 22px; }
+
+  /* Full-page panels */
+  .fullElem { padding: 25px; }
+  .back { font-size: 18px; padding: 8px 16px; top: 20px; }
+
+  /* To-Do page */
+  .todo-pg h2 { font-size: 38px; }
+  .todo-pg .todo-container { gap: 20px; }
+  .todo-container .addtask form #task,
+  .todo-container .addtask form textarea { font-size: 20px; }
+  .task h5 { font-size: 20px; }
+
+  /* Daily planner */
+  .daily-pg h2 { font-size: 40px; }
+  .daily-pg .day-planner .day-time { width: 100%; }
+
+  /* Motivation page */
+  .moti-pg .moti-container { width: 85%; }
+  .moti-2 h1 { font-size: 42px; }
+  .moti-1 h2, .moti-3 h2 { font-size: 26px; padding: 20px; }
+
+  /* Pomodoro */
+  .pomo-timer h1 { font-size: 110px; }
+  .pomo-pg .session { font-size: 22px; }
+
+  /* Goals page */
+  .goals-container { gap: 15px; }
+  .goals-side { width: 38%; }
+  .goals-checklist { min-height: 18vw; }
+  .week-day-cards { max-height: none; }
+}
+
+/*MOBILE */
+@media (max-width: 600px) {
+
+  /* Nav */
+  nav { padding: 14px; }
+  .nav-in {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+  }
+  .nav-in h2 { font-size: 18px; }
+  .theme { align-self: flex-end; padding: 8px 14px; }
+  .theme h4 { font-size: 13px; }
+  .wrap { height: 130px; }
+  #main { padding-top: 100px; }
+  section.allElems { padding: 100px 16px 50px 16px; }
+
+  /* Dashboard header */
+  .allElems header { padding: 22px; border-radius: 14px; gap: 18px; }
+  header .header1 h1 { font-size: 30px; margin-bottom: 15px; }
+  header .header1 h2,
+  header .header1 h4 { font-size: 16px; }
+  header .header2 h2 { font-size: 30px; }
+  header .header2 h4 { font-size: 16px; margin-bottom: 12px; }
+  header .header2 h3 { font-size: 13px; }
+
+  /* Feature cards -> full width stacked */
+  .allElems .allFeatures { gap: 20px; }
+  .elem { width: 100%; height: 190px; }
+  .elem h2 { font-size: 20px; right: 6%; }
+
+  /* Full-page panels */
+  .fullElem { padding: 18px; }
+  .back {
+    position: static;
+    display: inline-block;
+    margin-bottom: 18px;
+    font-size: 15px;
+    padding: 8px 14px;
+  }
+
+  /* To-Do page */
+  .todo-pg h2 { font-size: 26px; }
+  .todo-pg .todo-container {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+  }
+  .todo-pg .todo-container .addtask,
+  .todo-pg .todo-container .alltask {
+    width: 100%;
+  }
+  .todo-pg .todo-container .alltask { max-height: 400px; }
+  .todo-container .addtask form { padding: 20px; }
+  .todo-container .addtask form #task { font-size: 17px; padding: 10px 14px; }
+  .todo-container .addtask form textarea { font-size: 15px; height: 160px; }
+  .todo-container .addtask form button { font-size: 16px; }
+  .task { padding: 14px 16px; }
+  .task h5 { font-size: 15px; }
+  .task button { font-size: 12px; padding: 10px 14px; }
+
+  /* Daily planner */
+  .daily-pg h2 { font-size: 26px; }
+  .daily-pg .day-planner { padding: 18px; height: auto; }
+  .daily-pg .day-planner .day-time { width: 100%; margin-bottom: 12px; }
+  .daily-pg .day-time input { font-size: 20px; padding: 16px 20px; padding-top: 26px; }
+  .daily-pg .day-planner .day-time p { font-size: 13px; }
+
+  /* Motivation page */
+  .moti-pg .moti-container { width: 100%; height: auto; }
+  .moti-pg .moti-container .moti-wrapper { padding: 16px; border-width: 4px; }
+  .moti-1 h2, .moti-3 h2 { font-size: 18px; padding: 14px; }
+  .moti-2 { padding: 18px; margin-top: 25px; margin-bottom: 25px; }
+  .moti-2 h1 { font-size: 26px; }
+  .moti-pg .moti-container .moti-wrapper img { height: 45px; }
+
+  /* Pomodoro */
+  .pomo-pg h2 { font-size: 22px; }
+  .pomo-timer h1 { font-size: 60px; }
+  .pomo-timer button {
+    font-size: 15px;
+    padding: 10px 18px;
+    margin: 5px;
+  }
+  .pomo-pg .session { font-size: 15px; padding: 10px 18px; top: 12%; }
+
+  /* Goals page */
+  .goals-pg h2 { font-size: 24px; }
+  .goals-container {
+    flex-direction: column;
+    height: auto;
+    gap: 15px;
+  }
+  .goals-side { width: 100%; }
+  .goals-checklist { min-height: 220px; }
+  .mini-cal-dates span { font-size: 11px; }
+
+  .goals-week { height: 420px; }
+  .goals-week-head h3 { font-size: 16px; }
+
+  /* Week grid -> horizontal scroll of day columns instead of 7 squeezed columns */
+  .week-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  .week-day {
+    flex: 0 0 130px;
+    min-width: 130px;
+  }
+}

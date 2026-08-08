@@ -1484,7 +1484,7 @@ nav .nav-in {
     display: flex;
     grid-template-columns: none;
     overflow-x: auto;
-    padding-bottom: 8px
+    padding-bottom: 8px;
   }
   .week-day {
     flex: 0 0 130px;

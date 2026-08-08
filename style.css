@@ -1487,7 +1487,7 @@ nav .nav-in {
     padding-bottom: 8px;
   }
   .week-day {
-    flex: 0 0 130px;
+    flex: 0 0 130px
     min-width: 130px;
   }
 }

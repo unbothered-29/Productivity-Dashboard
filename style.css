@@ -1481,7 +1481,7 @@ nav .nav-in {
 
   /* Week grid -> horizontal scroll of day columns instead of 7 squeezed columns */
   .week-grid {
-    display: flex
+    display: flex;
     grid-template-columns: none;
     overflow-x: auto;
     padding-bottom: 8px;

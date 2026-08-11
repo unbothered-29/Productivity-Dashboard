@@ -1483,7 +1483,7 @@ nav .nav-in {
   .week-grid {
     display: flex;
     grid-template-columns: none;
-    overflow-x: auto
+    overflow-x: auto;
     padding-bottom: 8px;
   }
   .week-day {

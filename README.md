@@ -59,7 +59,7 @@ The weather feature uses the WeatherAPI.com API. If you fork this project, swap 
 This project is deployed on [Vercel](https://vercel.com/). Since it's a static site, you can deploy it by:
 
 1. Pushing the repo to GitHub.
-2. Importing the repo into Vercel.
+2. Importing the repo into Vercel
 3. Deploying with the default static site settings — no build command needed.
 
 ## Roadmap / Ideas
